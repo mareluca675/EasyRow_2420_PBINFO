@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+int numarDivizori(int n)
+{
+    int d, nrdiv = 0;
+    
+    for(d = 1; d * d <= n; d ++)
+    {
+        if(n % d == 0)
+        {
+            nrdiv += 2;
+        }
+        
+        if(d * d == n)
+        {
+            nrdiv --;
+        }
+    }
+    
+    return nrdiv;
+}
+
+int main()
+{
+    int n, a = 0, copiei;
+    
+    cin >> n;
+    
+    for(int i = 1; i <= n; i ++)
+    {
+        copiei = i;
+        a = a + numarDivizori(copiei);
+    }
+    
+    cout << a;
+
+    return 0;
+}
